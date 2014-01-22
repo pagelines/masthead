@@ -31,12 +31,6 @@ class PLMasthead extends PageLinesSection {
 	    		</script>
 	    	<?php }
     }
-
-     function section_scripts() {
-     	if( $this->opt( 'pagelines_masthead_html', $this->oset ) )
-    	wp_enqueue_script( 'pagelines-fitvids',$this->base_url . '/jquery.fitvids.js', array( 'jquery' ), PL_CORE_VERSION, true );
-    }
-
 	
 	function section_opts(  ){
 
