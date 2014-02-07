@@ -44,6 +44,7 @@ class PLMasthead extends PageLinesSection {
 							'key'			=> 'pagelines_masthead_img',
 							'type' 			=> 'image_upload',
 							'imagepreview' 	=> '270',
+							'has_alt'		=> true,
 							'label' 	=> __( 'Upload custom image', 'pagelines' ),
 						),
 						array(
@@ -147,7 +148,7 @@ class PLMasthead extends PageLinesSection {
 	*/
    function section_template() {
    		$mast_title = $this->opt('pagelines_masthead_title', $this->oset);
-   		$mast_img = $this->opt('pagelines_masthead_img', $this->oset);
+   		$mast_img = $this->opt('pagelines_masthead_img' );
 		$mast_tag = $this->opt('pagelines_masthead_tagline', $this->oset);
 		$mast_menu = ($this->opt('masthead_menu', $this->oset)) ? $this->opt('masthead_menu', $this->oset) : null;
 		$masthead_meta = $this->opt('masthead_meta', $this->oset);
@@ -162,8 +163,8 @@ class PLMasthead extends PageLinesSection {
 
 	<header class="jumbotron masthead <?php echo $classes;?>">
 	  	<?php
-
-	  		$theimg = sprintf('<img class="masthead-img" data-sync="pagelines_masthead_img" src="%s" />',$mast_img);
+	
+			$theimg = $this->image( 'pagelines_masthead_img', false, array( 'masthead-img' ) );
 	  		$masthtml = $this->opt('pagelines_masthead_html',$this->oset);
 
 	  		if($mast_img)
