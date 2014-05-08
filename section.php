@@ -184,6 +184,7 @@ class PLMasthead extends PageLinesSection {
 
 	  	?>
 
+		<?php if( $this->opt('masthead_button_link_1') || $this->opt('masthead_button_link_2') ): ?>
 	    <p class="download-info">
 
 	    <?php
@@ -201,8 +202,10 @@ class PLMasthead extends PageLinesSection {
 			}
 
 	    ?>
-	</p>
+		</p>
+		<?php endif; ?>
 	  </div>
+	<?php if( is_array( wp_get_nav_menu_items( $mast_menu ) ) || $masthead_meta ): ?>
 		<div class="mastlinks">
 			<?php
 			if( is_array( wp_get_nav_menu_items( $mast_menu ) ) )
@@ -223,6 +226,7 @@ class PLMasthead extends PageLinesSection {
 
 			?>
 		</div>
+	<?php endif; ?>
 	</header>
 		<?php
 	}
